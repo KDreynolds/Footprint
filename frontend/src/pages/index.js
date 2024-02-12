@@ -30,7 +30,7 @@ function IndexPage(props) {
         bgImageOpacity={1}
         textColor=""
       />
-      <ClientsSection
+      {/* <ClientsSection
         title="These companies trust us"
         subtitle=""
         strapline=""
@@ -49,7 +49,7 @@ function IndexPage(props) {
         bgImage=""
         bgImageOpacity={1}
         textColor=""
-      />
+      /> */}
       <CtaSection
         title={
           <>

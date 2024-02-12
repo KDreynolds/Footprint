@@ -14,7 +14,7 @@ function HeroSection2(props) {
       bgImageOpacity={props.bgImageOpacity}
       textColor={props.textColor}
     >
-      <div className="absolute inset-x-0 bottom-0 text-blue-700 text-opacity-50">
+      <div className="absolute inset-x-0 bottom-0 text-green-700 text-opacity-50">
         <svg fill="currentColor" viewBox="0 0 500 150">
           <path d="M-0.84,34.03 C187.63,148.52 327.03,-4.44 499.72,40.95 L500.00,150.00 L0.00,150.00 Z" />
         </svg>
@@ -56,8 +56,8 @@ function HeroSection2(props) {
         </div>
         <div className="pb-4 md:pb-0">
           <div className="relative mx-5 lg:mx-32">
-            <div className="absolute inset-0 rounded-xl bg-blue-600 bg-opacity-20 -m-4 transform rotate-2" />
-            <div className="absolute inset-0 rounded-xl bg-blue-600 bg-opacity-25 -m-4 transform -rotate-2" />
+            <div className="absolute inset-0 rounded-xl bg-green-600 bg-opacity-20 -m-4 transform rotate-2" />
+            <div className="absolute inset-0 rounded-xl bg-green-600 bg-opacity-25 -m-4 transform -rotate-2" />
             <img
               className="relative rounded-lg mx-auto shadow-lg"
               src="/pexels-teddy-yang-2263410.jpg"

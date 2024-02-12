@@ -26,7 +26,7 @@ function Navbar(props) {
 
   const classes = {
     navLink:
-      "font-semibold inline-flex items-center space-x-1 h-8 px-4 group-hover:text-blue-500 py-6",
+      "font-semibold inline-flex items-center space-x-1 h-8 px-4 group-hover:text-green-500 py-6",
     navLinkIcon:
       "opacity-50 transform transition duration-200 ease-out group-hover:rotate-180 inline-block w-4 h-4",
     dropdown: {
@@ -39,8 +39,8 @@ function Navbar(props) {
       inner:
         "bg-white shadow-xl ring-1 ring-black ring-opacity-5 rounded-lg overflow-hidden",
       title:
-        "text-xs uppercase font-semibold tracking-wider text-blue-800 mb-5",
-      link: "text-gray-600 hover:text-blue-600 font-medium text-sm flex items-center space-x-2",
+        "text-xs uppercase font-semibold tracking-wider text-green-800 mb-5",
+      link: "text-gray-600 hover:text-green-600 font-medium text-sm flex items-center space-x-2",
       icon: "opacity-25 inline-block w-5 h-5",
       feature:
         "p-3 rounded-xl flex items-center space-x-4 text-gray-600 font-medium text-sm",
@@ -64,7 +64,7 @@ function Navbar(props) {
       <div className="container py-4">
         <div className="flex justify-between">
         <Link href="/">
-          <a className="inline-flex items-center space-x-2 font-bold text-lg tracking-wide text-blue-600 hover:text-blue-400">
+          <a className="inline-flex items-center space-x-2 font-bold text-lg tracking-wide text-green-600 hover:text-green-400">
             <img
               src="/footprint-favicon-black.png" // Path to your logo in the public directory
               alt="Footprint Logo" // Alt text for the logo

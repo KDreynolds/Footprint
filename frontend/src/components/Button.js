@@ -34,9 +34,9 @@ const Button = React.forwardRef((props, ref) => {
     },
     variant: {
       primary:
-        "border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-800 hover:border-blue-800 focus:ring-blue-500 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700",
+        "border-green-700 bg-green-700 text-white hover:text-white hover:bg-green-800 hover:border-green-800 focus:ring-green-500 focus:ring-opacity-50 active:bg-green-700 active:border-green-700",
       secondary:
-        "border-blue-200 bg-blue-200 text-blue-700 hover:text-blue-700 hover:bg-blue-300 hover:border-blue-300 focus:ring-blue-500 focus:ring-opacity-50 active:bg-blue-200 active:border-blue-200",
+        "border-green-200 bg-green-200 text-green-700 hover:text-green-700 hover:bg-green-300 hover:border-green-300 focus:ring-green-500 focus:ring-opacity-50 active:bg-green-200 active:border-green-200",
       simple:
         "border-gray-300 bg-white text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white",
       light:

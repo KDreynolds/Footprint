@@ -8,10 +8,10 @@ function TeamBiosSection(props) {
     {
       avatar:
         "https://images.unsplash.com/photo-1492814580460-1f9a2a463cfe?crop=entropy&fit=crop&h=800&q=80&w=640",
-      name: "Irma Norton",
+      name: "Kyle Reynolds",
       role: "Founder & CEO",
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
+      twitter: "https://twitter.com/imyerf",
+      linkedin: "https://www.linkedin.com/in/kyle-reynolds-08b52094/",
     },
     {
       avatar:
@@ -34,38 +34,6 @@ function TeamBiosSection(props) {
         "https://images.unsplash.com/photo-1463453091185-61582044d556?crop=entropy&fit=crop&h=800&q=80&w=640",
       name: "Alex Saunders",
       role: "Marketing",
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1567186937675-a5131c8a89ea?crop=entropy&fit=crop&h=800&q=80&w=640",
-      name: "Herman Reese",
-      role: "Support Specialist",
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1514846326710-096e4a8035e0?crop=entropy&fit=crop&h=800&q=80&w=640",
-      name: "Sue Keller",
-      role: "Web Developer",
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?crop=entropy&fit=crop&h=800&q=80&w=640",
-      name: "Julio Rivera",
-      role: "Marketing",
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      avatar:
-        "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?crop=entropy&fit=crop&h=800&q=80&w=640",
-      name: "Shawn Bates",
-      role: "SEO Expert",
       twitter: "https://twitter.com",
       linkedin: "https://linkedin.com",
     },
