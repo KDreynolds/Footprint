@@ -14,16 +14,16 @@ function FeaturesSection(props) {
     // Left column
     left: [
       {
-        title: "Customizable",
+        title: "Easy to Use",
         description:
-          "Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.",
+          "Don't waste your time learning new software, our platform is designed to be simple and easy to use, so you can spend your time on what matters.",
         icon: AdjustmentsVerticalIcon,
         iconColor: "orange",
       },
       {
-        title: "Rich Statistics",
+        title: "Purpose Built",
         description:
-          "Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.",
+          "Our platform was built and designed with industry veterans to save you time and effort. Let us handle some of the most tedious parts of your work.",
         icon: ChartPieIcon,
         iconColor: "red",
       },
@@ -31,16 +31,16 @@ function FeaturesSection(props) {
     // Right column
     right: [
       {
-        title: "Works globally",
+        title: "Stay Focused",
         description:
-          "Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.",
+          "Let us handle the parts of your job that aren't really part of your job... so you can get back to your actual job.",
         icon: GlobeAmericasIcon,
         iconColor: "emerald",
       },
       {
-        title: "Lighting fast UI",
+        title: "Everything in One Place",
         description:
-          "Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.",
+          "Quit worrying about throwing together multiple resources or putting together informational packets last minute, it's all here.",
         icon: BoltIcon,
         iconColor: "purple",
       },

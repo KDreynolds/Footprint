@@ -23,7 +23,7 @@ function IndexPage(props) {
       <FeaturesSection
         title="Amazing features packed in a neat package"
         subtitle="You will love working with your newly updated and customized dashboard."
-        strapline="No more scrambling to make a packet"
+        strapline="The tool you didn't know you needed"
         size="md"
         bgColor="bg-white"
         bgImage=""
