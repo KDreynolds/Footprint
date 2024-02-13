@@ -17,7 +17,7 @@ function TeamBiosSection(props) {
       avatar:
         "https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?crop=entropy&fit=crop&h=800&q=80&w=640",
       name: "Jefferson Jones",
-      role: "Product Design",
+      role: "Founder & CTO",
       twitter: "https://twitter.com",
       linkedin: "https://linkedin.com",
     },
