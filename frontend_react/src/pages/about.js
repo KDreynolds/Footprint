@@ -1,29 +1,29 @@
 import React from "react";
-import Meta from "components/Meta";
-import HeroSection from "components/HeroSection";
-import StatsSection from "components/StatsSection";
-import TeamBiosSection from "components/TeamBiosSection";
-import CtaSection from "components/CtaSection";
+import Meta from "./../components/Meta";
+import HeroSection2 from "./../components/HeroSection2";
+import StatsSection from "./../components/StatsSection";
+import TeamBiosSection from "./../components/TeamBiosSection";
+import CtaSection from "./../components/CtaSection";
 
 function AboutPage(props) {
   return (
     <>
       <Meta title="About" description="Learn about our company and team" />
-      <HeroSection
+      <HeroSection2
         title={
           <>
             We are <span className="font-light">Footprint</span>
           </>
         }
-        subtitle="A passionate team who are here to make your job much simpler."
+        subtitle="A passionate team who are here to help you code and build your business using powerful tools."
         strapline=""
         size="md"
         bgColor="bg-white"
         bgImage=""
         bgImageOpacity={1}
         textColor=""
-        leftImage="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&fit=crop&h=800&w=1280"
-        rightImage="https://images.unsplash.com/photo-1554232456-8727aae0cfa4?crop=entropy&fit=crop&h=800&q=80&w=600"
+        leftImage="/pexels-wendy.jpg"
+        rightImage="/pexels-bilal.jpg"
       />
       <StatsSection
         title="Trusted by thousands of professionals"
