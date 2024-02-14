@@ -10,6 +10,7 @@ import EditItemModal from "./EditItemModal";
 import { useAuth } from "./../util/auth";
 import { updateItem, deleteItem, useItemsByOwner } from "./../util/db";
 
+
 function DashboardItems(props) {
   const auth = useAuth();
 
@@ -18,6 +19,7 @@ function DashboardItems(props) {
     status: itemsStatus,
     error: itemsError,
   } = useItemsByOwner(auth.user.uid);
+
 
   const [creatingItem, setCreatingItem] = useState(false);
 
@@ -56,6 +58,8 @@ function DashboardItems(props) {
             Add Item
           </Button>
         </div>
+
+        
 
         {(itemsStatus === "loading" || itemsAreEmpty) && (
           <div className="p-8">

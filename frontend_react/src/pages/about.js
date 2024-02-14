@@ -8,27 +8,27 @@ import CtaSection from "./../components/CtaSection";
 function AboutPage(props) {
   return (
     <>
-      <Meta title="About" description="Learn about our company and team" />
+      <Meta title="About" description="Discover more about our venue management platform and the team behind it" />
       <HeroSection2
         title={
           <>
-            We are <span className="font-light">Footprint</span>
+            Welcome to <span className="font-light">Footprint</span>
           </>
         }
-        subtitle="A passionate team who are here to help you code and build your business using powerful tools."
+        subtitle="A dedicated team committed to simplifying your venue management needs with innovative solutions."
         strapline=""
         size="md"
         bgColor="bg-white"
         bgImage=""
         bgImageOpacity={1}
         textColor=""
-        leftImage="/pexels-wendy.jpg"
-        rightImage="/pexels-bilal.jpg"
+        leftImage="/pexels-venue.jpg"
+        rightImage="/pexels-event.jpg"
       />
       <StatsSection
-        title="Trusted by thousands of professionals"
-        subtitle="Web developers from all over the world are using our products. Join them and build something amazing!"
-        strapline="Inspiring Results"
+        title="Empowering Venue Managers Worldwide"
+        subtitle="Thousands of venue managers globally trust our platform to streamline their operations and enhance guest experiences."
+        strapline="Transforming Spaces into Experiences"
         size="md"
         bgColor="bg-white"
         bgImage=""
@@ -36,8 +36,8 @@ function AboutPage(props) {
         textColor=""
       />
       <TeamBiosSection
-        title="Meet our amazing team"
-        subtitle="They are working nonstop behind the scenes to help you build better products, web services and websites."
+        title="Our Expert Team"
+        subtitle="Driven by a passion for excellence in venue management, our team works tirelessly to support your success."
         strapline=""
         size="md"
         bgColor="bg-white"
