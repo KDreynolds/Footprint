@@ -34,27 +34,27 @@ function FeaturesSection(props) {
       icon: GlobeAmericasIcon,
       iconColor: "emerald",
     },
-    {
-      title: "Lightning-Fast Interface",
-      description:
-        "Enjoy a responsive, intuitive UI that ensures quick and efficient management of your events. Time is money, and our platform helps you save both.",
-      icon: BoltIcon,
-      iconColor: "purple",
-    },
-    {
-      title: "Modular Components",
-      description:
-        "Our platform is built with flexibility in mind. Choose the modules you need, from ticketing to vendor management, to create a solution that fits your workflow.",
-      icon: PuzzlePieceIcon,
-      iconColor: "blue",
-    },
-    {
-      title: "Seamless Authentication",
-      description:
-        "Keep your data secure with robust authentication mechanisms for staff and customers alike. Manage permissions with custom roles and access controls.",
-      icon: UsersIcon,
-      iconColor: "pink",
-    },
+    // {
+    //   title: "Lightning-Fast Interface",
+    //   description:
+    //     "Enjoy a responsive, intuitive UI that ensures quick and efficient management of your events. Time is money, and our platform helps you save both.",
+    //   icon: BoltIcon,
+    //   iconColor: "purple",
+    // },
+    // {
+    //   title: "Modular Components",
+    //   description:
+    //     "Our platform is built with flexibility in mind. Choose the modules you need, from ticketing to vendor management, to create a solution that fits your workflow.",
+    //   icon: PuzzlePieceIcon,
+    //   iconColor: "blue",
+    // },
+    // {
+    //   title: "Seamless Authentication",
+    //   description:
+    //     "Keep your data secure with robust authentication mechanisms for staff and customers alike. Manage permissions with custom roles and access controls.",
+    //   icon: UsersIcon,
+    //   iconColor: "pink",
+    // },
   ];
 
   return (
