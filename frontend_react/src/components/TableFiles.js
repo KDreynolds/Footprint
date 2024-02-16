@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import supabase from '../util/supabase';
 import Avatar from '@mui/joy/Avatar';
 import AvatarGroup from '@mui/joy/AvatarGroup';
 import Typography from '@mui/joy/Typography';
@@ -8,6 +9,41 @@ import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 
 export default function TableFiles() {
+  const [files, setFiles] = useState([]);
+
+  const formatSize = (size) => {
+    if (size < 1024) return size + ' bytes';
+    let sizeInKB = size / 1024;
+    if (sizeInKB < 1024) return sizeInKB.toFixed(1) + ' KB';
+    let sizeInMB = sizeInKB / 1024;
+    if (sizeInMB < 1024) return sizeInMB.toFixed(1) + ' MB';
+    let sizeInGB = sizeInMB / 1024;
+    return sizeInGB.toFixed(1) + ' GB';
+  };
+
+  useEffect(() => {
+    const fetchFiles = async () => {
+      const { data, error } = await supabase
+        .from('files')
+        .select('*');
+
+      if (error) {
+        console.error('Error fetching files:', error);
+      } else {
+        console.log('Retrieved data:', data); // This line logs the fetched data
+        setFiles(data);
+      }
+    };
+
+    fetchFiles();
+  }, []);
+
+  // Function to format the date
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div>
       <Table
@@ -23,7 +59,7 @@ export default function TableFiles() {
         <thead>
           <tr>
             <th>
-              <Typography level="title-sm">Folder</Typography>
+              <Typography level="title-sm">File</Typography>
             </th>
             <th>
               <Typography
@@ -42,114 +78,35 @@ export default function TableFiles() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <Typography
-                level="title-sm"
-                startDecorator={<FolderRoundedIcon color="primary" />}
-                sx={{ alignItems: 'flex-start' }}
-              >
-                Travel pictures
-              </Typography>
-            </td>
-            <td>
-              <Typography level="body-sm">21 Oct 2023, 3PM</Typography>
-            </td>
-            <td>
-              <Typography level="body-sm">987.5MB</Typography>
-            </td>
-            <td>
-              <AvatarGroup
-                size="sm"
-                sx={{ '--AvatarGroup-gap': '-8px', '--Avatar-size': '24px' }}
-              >
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=6"
-                  srcSet="https://i.pravatar.cc/48?img=6 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=7"
-                  srcSet="https://i.pravatar.cc/48?img=7 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=8"
-                  srcSet="https://i.pravatar.cc/48?img=8 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=9"
-                  srcSet="https://i.pravatar.cc/48?img=9 2x"
-                />
-              </AvatarGroup>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Typography
-                level="title-sm"
-                startDecorator={<FolderRoundedIcon color="primary" />}
-                sx={{ alignItems: 'flex-start' }}
-              >
-                Important documents
-              </Typography>
-            </td>
-            <td>
-              <Typography level="body-sm">26 Sep 2023, 7PM</Typography>
-            </td>
-            <td>
-              <Typography level="body-sm">232.3MB</Typography>
-            </td>
-            <td>
-              <AvatarGroup
-                size="sm"
-                sx={{ '--AvatarGroup-gap': '-8px', '--Avatar-size': '24px' }}
-              >
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=1"
-                  srcSet="https://i.pravatar.cc/48?img=1 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=9"
-                  srcSet="https://i.pravatar.cc/48?img=9 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=2"
-                  srcSet="https://i.pravatar.cc/48?img=2 2x"
-                />
-                <Avatar
-                  src="https://i.pravatar.cc/24?img=3"
-                  srcSet="https://i.pravatar.cc/48?img=3 2x"
-                />
-                <Avatar>+3</Avatar>
-              </AvatarGroup>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Typography
-               level="title-sm"
-               startDecorator={<FolderRoundedIcon color="primary" />}
-               sx={{ alignItems: 'flex-start' }}
-             >
-               Work reports
-             </Typography>
-           </td>
-           <td>
-             <Typography level="body-sm">14 Mar 2021, 7PM</Typography>
-           </td>
-           <td>
-             <Typography level="body-sm">123.3KB</Typography>
-           </td>
-           <td>
-             <Avatar
-               size="sm"
-               src="https://i.pravatar.cc/24?img=2"
-               srcSet="https://i.pravatar.cc/48?img=2 2x"
-               sx={{ '--Avatar-size': '24px' }}
-             />
-           </td>
-         </tr>
-       </tbody>
-     </Table>
-   </div>
- );
+          {files.map((file) => (
+            <tr key={file.id}>
+              <td>
+                <Typography
+                  level="title-sm"
+                  startDecorator={<FolderRoundedIcon color="primary" />}
+                  sx={{ alignItems: 'flex-start' }}
+                >
+                  {file.file_name}
+                </Typography>
+              </td>
+              <td>
+                <Typography level="body-sm">{formatDate(file.last_modified)}</Typography>
+              </td>
+              <td>
+              <Typography level="body-sm">{formatSize(file.size)}</Typography>
+              </td>
+              <td>
+                <AvatarGroup
+                  size="sm"
+                  sx={{ '--AvatarGroup-gap': '-8px', '--Avatar-size': '24px' }}
+                >
+                  {/* Display avatars for users */}
+                </AvatarGroup>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
+  );
 }
