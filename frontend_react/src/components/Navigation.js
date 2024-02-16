@@ -29,15 +29,7 @@ export default function Navigation() {
               <ListItemDecorator>
                 <FolderRoundedIcon fontSize="small" />
               </ListItemDecorator>
-              <ListItemContent>My files</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <ShareRoundedIcon fontSize="small" />
-              </ListItemDecorator>
-              <ListItemContent>Shared files</ListItemContent>
+              <ListItemContent>Files</ListItemContent>
             </ListItemButton>
           </ListItem>
           <ListItem>
@@ -45,85 +37,11 @@ export default function Navigation() {
               <ListItemDecorator>
                 <DeleteRoundedIcon fontSize="small" />
               </ListItemDecorator>
-              <ListItemContent>Trash</ListItemContent>
+              <ListItemContent>Create Packet</ListItemContent>
             </ListItemButton>
           </ListItem>
         </List>
       </ListItem>
-      <ListItem nested sx={{ mt: 2 }}>
-        <ListSubheader sx={{ letterSpacing: '2px', fontWeight: '800' }}>
-          Tags
-        </ListSubheader>
-        <List
-          aria-labelledby="nav-list-tags"
-          size="sm"
-          sx={{
-            '--ListItemDecorator-size': '32px',
-            '& .JoyListItemButton-root': { p: '8px' },
-          }}
-        >
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <Box
-                  sx={{
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '99px',
-                    bgcolor: 'primary.500',
-                  }}
-                />
-              </ListItemDecorator>
-              <ListItemContent>Personal</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <Box
-                  sx={{
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '99px',
-                    bgcolor: 'danger.500',
-                  }}
-                />
-              </ListItemDecorator>
-              <ListItemContent>Work</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <Box
-                  sx={{
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '99px',
-                    bgcolor: 'warning.400',
-                  }}
-                />
-              </ListItemDecorator>
-              <ListItemContent>Travels</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <Box
-                  sx={{
-                    width: '10px',
-                    height: '10px',
-                    borderRadius: '99px',
-                    bgcolor: 'success.400',
-                  }}
-                />
-              </ListItemDecorator>
-              <ListItemContent>Concert tickets</ListItemContent>
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </ListItem>
-    </List>
+      </List>
   );
 }

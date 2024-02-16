@@ -12,7 +12,7 @@ function DashboardSection(props) {
       bgImageOpacity={props.bgImageOpacity}
       textColor={props.textColor}
     >
-      <div className="container">
+     <div className="container">
         <SectionHeader
           title={props.title}
           subtitle={props.subtitle}

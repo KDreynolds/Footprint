@@ -2,8 +2,8 @@ import React from "react";
 import Meta from "./../components/Meta";
 import DashboardSection from "./../components/DashboardSection";
 import { requireAuth } from "./../util/auth";
-import Layout from "./../components/Layout"; // Import Layout
-import Navigation from "./../components/Navigation"; // Import Navigation
+import Layout from "./../components/Layout"; 
+import Navigation from "./../components/Navigation"; 
 import SupabaseDropzone from './../components/SupabaseDropzone';
 
 function DashboardPage(props) {

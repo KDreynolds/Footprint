@@ -50,8 +50,17 @@ const SupabaseDropzone = () => {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  const dropzoneStyle = {
+    border: '2px dashed #007bff',
+    padding: '20px',
+    cursor: 'pointer',
+    maxWidth: '600px', // Set a max-width for the dropzone
+    margin: '0 auto', // Center the dropzone horizontally
+    marginTop: '20px', // Add some margin at the top
+  };
+
   return (
-    <div {...getRootProps()} style={{ border: '2px dashed #007bff', padding: '20px', cursor: 'pointer' }}>
+    <div {...getRootProps()} style={dropzoneStyle}>
       <input {...getInputProps()} />
       {
         isDragActive ?
