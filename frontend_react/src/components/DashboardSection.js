@@ -1,20 +1,9 @@
 import React from "react";
 import Section from "./Section";
 import SectionHeader from "./SectionHeader";
-import { Link } from "./../util/router";
-import { useAuth } from "./../util/auth";
-import { useDropzone } from 'react-dropzone';
+import TableFiles from "./TableFiles"; // Import TableFiles component
 
 function DashboardSection(props) {
-  const auth = useAuth();
-
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({
-    onDrop: acceptedFiles => {
-      // Handle file upload here
-      console.log(acceptedFiles);
-    }
-  });
-
   return (
     <Section
       size={props.size}
@@ -30,21 +19,8 @@ function DashboardSection(props) {
           strapline={props.strapline}
           className="text-center"
         />
-        <div className="flex flex-wrap">
-          {/* Adjusted layout to focus on a single view */}
-          <div className="p-4 w-full">
-            <div className="p-6 rounded border border-gray-200 prose prose-a:text-blue-600 max-w-none">
-              <div {...getRootProps()} className="dropzone">
-                <input {...getInputProps()} />
-                {
-                  isDragActive ?
-                    <p>Drop the files here ...</p> :
-                    <p>Drag 'n' drop some files here, or click to select files</p>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Use TableFiles component to display files */}
+        <TableFiles />
       </div>
     </Section>
   );

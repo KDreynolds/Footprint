@@ -1,5 +1,7 @@
 import React from "react";
 import "./../styles/global.css";
+import { CssVarsProvider } from '@mui/joy/styles'; // Import CssVarsProvider for MUI Joy styles
+import CssBaseline from '@mui/joy/CssBaseline';
 import Navbar from "./../components/Navbar";
 import IndexPage from "./index";
 import AboutPage from "./about";
@@ -43,6 +45,8 @@ function App(props) {
   return (
     <QueryClientProvider>
       <AuthProvider>
+        <CssVarsProvider> {/* Wrap the entire application with CssVarsProvider */}
+        <CssBaseline />
         <Chat />
         <Router>
           <>
@@ -64,7 +68,8 @@ function App(props) {
 
             <ConditionalFooter />
           </>
-        </Router>
+          </Router>
+        </CssVarsProvider>
       </AuthProvider>
     </QueryClientProvider>
   );
