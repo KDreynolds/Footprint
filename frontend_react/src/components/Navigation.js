@@ -8,8 +8,7 @@ import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import ListItemContent from '@mui/joy/ListItemContent';
 
 import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
-import ShareRoundedIcon from '@mui/icons-material/ShareRounded';
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
 
 export default function Navigation() {
   return (
@@ -35,7 +34,7 @@ export default function Navigation() {
           <ListItem>
             <ListItemButton>
               <ListItemDecorator>
-                <DeleteRoundedIcon fontSize="small" />
+              <AssessmentRoundedIcon fontSize="small" />
               </ListItemDecorator>
               <ListItemContent>Create Packet</ListItemContent>
             </ListItemButton>
