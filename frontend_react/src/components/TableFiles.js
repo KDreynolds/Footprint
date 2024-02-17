@@ -3,9 +3,9 @@ import supabase from '../util/supabase';
 import Typography from '@mui/joy/Typography';
 import Table from '@mui/joy/Table';
 import Checkbox from '@mui/joy/Checkbox';
-import IconButton from '@mui/joy/IconButton'; // Import IconButton for the trash can icon
-import DeleteIcon from '@mui/icons-material/Delete'; // Import the trash can icon
-
+import IconButton from '@mui/joy/IconButton'; 
+import DeleteIcon from '@mui/icons-material/Delete'; 
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import FolderRoundedIcon from '@mui/icons-material/FolderRounded';
 import ArrowDropDownRoundedIcon from '@mui/icons-material/ArrowDropDownRounded';
 
@@ -23,6 +23,24 @@ export default function TableFiles() {
     let sizeInGB = sizeInMB / 1024;
     return sizeInGB.toFixed(1) + ' GB';
   };
+
+  // Function to handle the end of a drag event
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    const items = Array.from(files);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setFiles(items);
+  };
+
+  // Fetch files from the database on component mount
+  useEffect(() => {
+    // Fetching logic remains the same
+  }, []);
 
   // Function to format dates
   const formatDate = (dateString) => {
@@ -100,85 +118,67 @@ export default function TableFiles() {
   };
 
   return (
-    <div>
-      <Table
-        hoverRow
-        size="sm"
-        borderAxis="none"
-        variant="soft"
-        sx={{
-          '--TableCell-paddingX': '1rem',
-          '--TableCell-paddingY': '1rem',
-          // Add custom styles for specific columns to control width
-          '& th:nth-of-type(4), & td:nth-of-type(4)': { // Target "Include in Report?" column
-            width: '160px', // Adjust width as needed
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          },
-          '& th:nth-of-type(5), & td:nth-of-type(5)': { // Target "Actions" column
-            width: '100px', // Adjust width as needed
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          },
-        }}
-      >
-        <thead>
-          <tr>
-            <th>
-              <Typography level="title-sm">File</Typography>
-            </th>
-            <th>
-              <Typography
-                level="title-sm"
-                endDecorator={<ArrowDropDownRoundedIcon />}
-              >
-                Last modified
-              </Typography>
-            </th>
-            <th>
-              <Typography level="title-sm">Size</Typography>
-            </th>
-            <th>
-              <Typography level="title-sm">Report</Typography>
-            </th>
-            <th>
-              <Typography level="title-sm">Delete</Typography>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {files.map((file) => (
-            <tr key={file.id}>
-              <td>
-                <Typography
-                  level="title-sm"
-                  startDecorator={<FolderRoundedIcon color="primary" />}
-                  sx={{ alignItems: 'flex-start' }}
-                  >
-                    {file.file_name}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography level="body-sm">{formatDate(file.last_modified)}</Typography>
-                </td>
-                <td>
-                  <Typography level="body-sm">{formatSize(file.size)}</Typography>
-                </td>
-                <td>
-                  <Checkbox
-                    checked={!!checkedFiles[file.id]} // Convert truthy/falsy to boolean
-                    onChange={() => handleCheckboxChange(file.id)}
-                  />
-                </td>
-                <td>
-                  <IconButton onClick={() => handleDelete(file.id)} >
-                    <DeleteIcon />
-                  </IconButton>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
-    );
-  }
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="droppable-files">
+        {(provided) => (
+          <div {...provided.droppableProps} ref={provided.innerRef}>
+            <Table hoverRow size="sm" borderAxis="none" variant="soft" sx={{
+              '--TableCell-paddingX': '1rem',
+              '--TableCell-paddingY': '1rem',
+              '& th:nth-of-type(4), & td:nth-of-type(4)': {
+                width: '160px',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              },
+              '& th:nth-of-type(5), & td:nth-of-type(5)': {
+                width: '100px',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              },
+            }}>
+              <thead>
+                <tr>
+                  <th><Typography level="title-sm">File</Typography></th>
+                  <th><Typography level="title-sm" endDecorator={<ArrowDropDownRoundedIcon />}>Last modified</Typography></th>
+                  <th><Typography level="title-sm">Size</Typography></th>
+                  <th><Typography level="title-sm">Report</Typography></th>
+                  <th><Typography level="title-sm">Delete</Typography></th>
+                </tr>
+              </thead>
+              <tbody>
+                {files.map((file, index) => (
+                  <Draggable key={file.id} draggableId={file.id.toString()} index={index}>
+                    {(provided) => (
+                      <tr ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                        <td>
+                          <Typography level="title-sm" startDecorator={<FolderRoundedIcon color="primary" />} sx={{ alignItems: 'flex-start' }}>
+                            {file.file_name}
+                          </Typography>
+                        </td>
+                        <td>
+                          <Typography level="body-sm">{formatDate(file.last_modified)}</Typography>
+                        </td>
+                        <td>
+                          <Typography level="body-sm">{formatSize(file.size)}</Typography>
+                        </td>
+                        <td>
+                          <Checkbox checked={!!checkedFiles[file.id]} onChange={() => handleCheckboxChange(file.id)} />
+                        </td>
+                        <td>
+                          <IconButton onClick={() => handleDelete(file.id)}>
+                            <DeleteIcon />
+                          </IconButton>
+                        </td>
+                      </tr>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </tbody>
+            </Table>
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
+}

@@ -3,9 +3,6 @@ import {
   AdjustmentsVerticalIcon,
   ChartPieIcon,
   GlobeAmericasIcon,
-  BoltIcon,
-  PuzzlePieceIcon,
-  UsersIcon,
 } from "@heroicons/react/24/solid";
 import Section from "./Section";
 import SectionHeader from "./SectionHeader";
